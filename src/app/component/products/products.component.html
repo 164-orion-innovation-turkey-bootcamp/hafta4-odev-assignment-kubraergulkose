@@ -1,0 +1,44 @@
+<div class="card-top container-fluid">
+  <div class="container d-flex">
+    <div class="item">
+      <a (click)="filter('')">
+        <img src="https://cdn-icons-png.flaticon.com/128/1474/1474613.png" alt="">
+        <h6>All Products</h6>
+      </a>
+    </div>
+    <div class="item">
+      <a (click)="filter('electronics')" >
+        <img src="https://static.thenounproject.com/png/1180247-200.png" alt="">
+        <h6>Electronics</h6>
+      </a>
+    </div>
+    <div class="item">
+      <a (click)="filter('fashion')">
+        <img src="https://cdn-icons-png.flaticon.com/512/3460/3460869.png" alt="">
+        <h6>Fashion</h6>
+      </a>
+    </div>
+    <div class="item">
+      <a (click)="filter('jewelery')">
+        <img src="https://icon-library.com/images/jewelry-icon/jewelry-icon-29.jpg" alt="">
+        <h6>Jewelery</h6>
+      </a>
+    </div>
+  </div>
+</div>
+<h1 *ngIf="!isLoginSuccess" class="warning_text">You should register or login!</h1>
+<h1 *ngIf="isLoginSuccess && !isProductsLoaded" class="warning_text">Loading...</h1>
+<div class="container" *ngIf="isLoginSuccess">
+  <div class="row">
+    <ng-container *ngFor="let item of filterCategory | filter: searchKey : 'title'"> <!--Product listteki tüm elemanları gezsin -->
+      <div class="card col-md-3">
+        <img src="{{item.image}}" alt=""> <!--Ürün fiyatları için -->
+        <h5 style="white-space: nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.title}}</h5>  <!-- Ürün kısa açıklaması, title'ı için -->
+        <p style="white-space: nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.description}}</p>    <!-- Ürünü detaylı açıklaması için, description -->
+        <p><strong>Price: </strong>${{item.price}}</p>    <!--Ürün fiyatları için -->
+        <button class="btn btn-success" (click)=addtocart(item)>Add to cart</button>  <!--Sepete eklemek için -->
+        <button class="btn btn-secondary" (click)=gotoProduct(item)>See Details</button>
+      </div>
+    </ng-container>
+  </div>
+</div>
