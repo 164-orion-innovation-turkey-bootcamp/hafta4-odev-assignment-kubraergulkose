@@ -17,7 +17,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 - Also I use routing for register page.
 ![image](https://user-images.githubusercontent.com/98026058/159251728-d3efb70f-cb85-451a-82f8-2913c3857582.png)
 ![image](https://user-images.githubusercontent.com/98026058/159251838-11a62200-c46d-43c4-9698-8e436dc97335.png)
-After successful registration, user information will be registered in "go.rest/users" api.
+- After successful registration, user information will be registered in "go.rest/users" api.
 
 # Login Form Page
 - During the login process, the 'go.rest/users' API will be checked. If the email or password is incorrect, a warning is given.
